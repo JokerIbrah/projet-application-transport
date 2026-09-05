@@ -1,0 +1,11 @@
+# --- API ---
+fastapi
+uvicorn[standard]
+pydantic
+
+# --- Données GTFS ---
+gtfs-realtime-bindings
+httpx
+
+# --- Config ---
+python-dotenv
