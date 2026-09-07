@@ -1,5 +1,13 @@
 # projet-application-transport
 
+# installation de l'application
+
+Sur linux:
+
+Sur Windows:
+
+# v0.1: transport messin
+
 Je veux essayer de faire une application pour développé mes scrills en dév
 
 Je vais faire une application minimaliste avec le maximum d'outil pour les usagers des transports en commun du réseau messin (Le Met')
