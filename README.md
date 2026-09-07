@@ -9,3 +9,5 @@ Comme dans la création d'un site web, je vais commencer par le statique mais à
 Dans le fichier loader ne décisions devait être prise:
 Privilègié l'espace disque ou de la simplicité et de la rapidité?
 J'ai choisis de privilègié la rapidité en utilisant une table
+
+Mon algorithme travaillera sur des tableau plats d'entiers et construira donc les leg et le Journey qu'une seule fois ce qui occasionne un gain en rapidité
