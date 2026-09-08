@@ -1,0 +1,11 @@
+# Base reconstruite par gtfs_metz/loader.py
+data/*.sqlite
+
+# Environnement
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]

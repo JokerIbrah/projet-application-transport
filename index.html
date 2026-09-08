@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce fichier n'est pas l'application : elle est servie par le serveur.">
+  <title>Ce n'est pas l'application</title>
+  <style>
+    body {
+      margin: 0 auto; padding: 3rem 1.25rem; max-width: 34rem;
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #16181d; background: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #f2f3f5; background: #16181d; }
+      code, pre { background: #1e2128; }
+    }
+    h1 { font-size: 1.4rem; }
+    code, pre { padding: 0.15rem 0.35rem; border-radius: 5px; background: #f2f3f5; }
+    pre { padding: 0.75rem; overflow-x: auto; }
+    a { color: #b22e75; }
+  </style>
+</head>
+<body>
+  <h1>Ce fichier n'est pas l'application</h1>
+
+  <p>La page que vous cherchez est <code>app/static/index.html</code>, et
+  elle ne fonctionne pas en double-cliquant dessus : ses horaires viennent
+  de l'API, il faut donc lancer le serveur.</p>
+
+  <p>Depuis la racine du dépôt, une fois seulement :</p>
+  <pre>python -m gtfs_metz.loader</pre>
+
+  <p>Puis, à chaque fois :</p>
+  <pre>uvicorn app.main:app --reload</pre>
+
+  <p>L'application est alors sur
+  <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
+
+  <p>Voir le <a href="README.md">README</a> pour l'installation complète.</p>
+</body>
+</html>

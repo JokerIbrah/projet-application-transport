@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Itinéraires, horaires et lignes du réseau Le Met' à Metz.">
+  <title>Le Met' — itinéraires et horaires</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Le Met'</h1>
+    <p class="subtitle">Itinéraires, horaires et lignes du réseau messin</p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" data-panel="journey" aria-selected="true">Itinéraire</button>
+    <button type="button" role="tab" data-panel="board" aria-selected="false">Horaires</button>
+    <button type="button" role="tab" data-panel="lines" aria-selected="false">Lignes</button>
+  </nav>
+
+  <main>
+    <!-- Itinéraire ------------------------------------------------- -->
+    <section id="journey" class="panel" role="tabpanel">
+      <form id="search" autocomplete="off">
+        <div class="field">
+          <label for="origin">Départ</label>
+          <input type="text" id="origin" placeholder="Gare, République…" required>
+          <ul class="suggestions" id="origin-list" hidden></ul>
+        </div>
+
+        <div class="field">
+          <label for="destination">Arrivée</label>
+          <input type="text" id="destination" placeholder="Hôpital Mercy…" required>
+          <ul class="suggestions" id="destination-list" hidden></ul>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="day">Jour</label>
+            <input type="date" id="day" required>
+          </div>
+          <div class="field">
+            <label for="time">Heure</label>
+            <input type="time" id="time" required>
+          </div>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" id="realtime"> Tenir compte des retards observés
+        </label>
+
+        <button type="submit">Rechercher</button>
+      </form>
+
+      <output id="result" aria-live="polite"></output>
+    </section>
+
+    <!-- Prochains passages ----------------------------------------- -->
+    <section id="board" class="panel" role="tabpanel" hidden>
+      <form id="board-form" autocomplete="off">
+        <div class="field">
+          <label for="stop">Arrêt</label>
+          <input type="text" id="stop" placeholder="Nom de l'arrêt…" required>
+          <ul class="suggestions" id="stop-list" hidden></ul>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="board-day">Jour</label>
+            <input type="date" id="board-day" required>
+          </div>
+          <div class="field">
+            <label for="board-time">À partir de</label>
+            <input type="time" id="board-time" required>
+          </div>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" id="board-realtime"> Afficher les retards observés
+        </label>
+
+        <button type="submit">Afficher les passages</button>
+      </form>
+
+      <output id="board-result" aria-live="polite"></output>
+    </section>
+
+    <!-- Lignes ----------------------------------------------------- -->
+    <section id="lines" class="panel" role="tabpanel" hidden>
+      <p class="hint">Toutes les lignes décrites par le GTFS. Sélectionnez-en
+      une pour voir son parcours.</p>
+      <div id="route-list" class="route-list">Chargement…</div>
+      <output id="route-detail" aria-live="polite"></output>
+    </section>
+  </main>
+
+  <footer>
+    <p id="status"></p>
+    <nav>
+      <a href="page_de_confidentialite.html">Confidentialité</a>
+      <a href="page_de_mention_legale.html">Mentions légales</a>
+      <a href="/docs">API</a>
+    </nav>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

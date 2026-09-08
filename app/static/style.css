@@ -1,0 +1,287 @@
+/* Minimal par choix : une colonne, deux couleurs, aucune dépendance.
+   Les variables suffisent à basculer en sombre selon le réglage système. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #16181d;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #b22e75;   /* repris de la charte des lignes Le Met' */
+  --field: #f7f7f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181d;
+    --fg: #f2f3f5;
+    --muted: #9aa0aa;
+    --line: #2a2e37;
+    --accent: #ea67a8;
+    --field: #1e2128;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  max-width: 34rem;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0.15rem 0 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Formulaire ------------------------------------------------------- */
+
+form { display: grid; gap: 0.9rem; }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+.field { position: relative; display: grid; gap: 0.3rem; }
+
+label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  color: inherit;
+  font: inherit;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+button {
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.08); }
+button:disabled { opacity: 0.6; cursor: progress; }
+
+/* Suggestions ------------------------------------------------------ */
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-height: 13rem;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  list-style: none;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+}
+
+.suggestions li {
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.suggestions li:hover, .suggestions li[aria-selected="true"] {
+  background: var(--field);
+}
+
+/* Résultat --------------------------------------------------------- */
+
+output { display: block; margin-top: 2rem; }
+
+.summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary .times { font-size: 1.3rem; font-weight: 600; }
+.summary .meta { color: var(--muted); font-size: 0.85rem; }
+
+.legs { margin: 0; padding: 0; list-style: none; }
+
+.leg {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.leg time { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+
+.badge {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 5px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.leg .detail { color: var(--muted); font-size: 0.85rem; }
+.leg.walk .badge { background: var(--muted); }
+.delay { color: #c2410c; font-weight: 600; }
+
+.error { color: #b91c1c; }
+
+/* Pied de page ----------------------------------------------------- */
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+footer nav { display: flex; gap: 1rem; }
+footer a { color: inherit; }
+
+#status { margin: 0 0 0.6rem; }
+
+/* Pages statiques (confidentialité, mentions légales) --------------- */
+
+main h2 {
+  margin: 2rem 0 0.4rem;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+main p { margin: 0 0 0.8rem; }
+main em { color: var(--muted); font-style: italic; }
+
+/* Onglets ---------------------------------------------------------- */
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 0 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs button {
+  padding: 0.5rem 0.8rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tabs button[aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--fg);
+}
+
+.tabs button:hover { filter: none; color: var(--fg); }
+
+.hint { color: var(--muted); font-size: 0.85rem; }
+
+/* Prochains passages ----------------------------------------------- */
+
+.departure {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.departure time {
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.departure .detail { color: var(--muted); font-size: 0.8rem; }
+
+/* Lignes ------------------------------------------------------------ */
+
+.route-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.route-chip {
+  padding: 0.15rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+
+.route-chip:hover { border-color: var(--line); }
+
+.stops {
+  margin: 0.5rem 0 0;
+  padding-left: 1.4rem;
+  color: var(--fg);
+  font-size: 0.9rem;
+}
+
+.stops li { padding: 0.15rem 0; }
+
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline dotted var(--line);
+  cursor: pointer;
+}
+
+.link:hover { color: var(--accent); text-decoration-color: var(--accent); }
