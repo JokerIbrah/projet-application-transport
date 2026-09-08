@@ -55,6 +55,9 @@ pip install -r requirement.txt
 
 Il faut ouvrir avec l'IP locale et le port 8000 (exemple <http://127.0.0.1:8000>)
 
+<img width="1717" height="932" alt="image" src="https://github.com/user-attachments/assets/9fd32442-17f7-4e52-931a-4e6da5d6fb29" />
+
+
 ## Docker
 
 ```bash
