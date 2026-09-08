@@ -205,14 +205,6 @@ l'horaire théorique.
 - Le `index.html` à la racine du dépôt est une ancienne maquette : la page
   réellement servie est `app/static/index.html`.
 
-## Feuille de route
-
-- **v0.1** — chargement du GTFS statique, moteur d'itinéraire, page statique.
-- **v0.2** *(en cours)* — API complète, temps réel branché, front minimal :
-  itinéraire, fiches horaires et consultation des lignes.
-- **v0.3** — tests contre l'oracle Dijkstra, plusieurs itinéraires proposés.
-- **v0.4** — perturbations (`service_alerts`), carte des véhicules.
-
 ---
 
 ## Données
